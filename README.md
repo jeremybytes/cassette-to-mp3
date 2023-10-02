@@ -21,8 +21,11 @@ Desktop application to convert the separate wave files into MP3s based on provid
 Desktop application to add ID3 tags to MP3 files.  
 ***Work in Progress***  
 
-5. WAVMaker  
-Console application used to test the basics of recording.  
+5. AudioProcessorLibrary  
+Combine library to support entire workflow.  
+
+6. TesterApp  
+Console application to test the workflow on a single, hard-coded file. (working!)
 
 ## Enhancements
 I've got the following features planned.  
