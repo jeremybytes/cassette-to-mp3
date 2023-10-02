@@ -1,0 +1,49 @@
+﻿<Window x:Class="WAVRecorder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WAVRecorder"
+        mc:Ignorable="d"
+        Title="WAV Maker" Height="175" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Input Devices -->
+        <Label Grid.Row="0" Grid.Column="0">Input Device</Label>
+        <ComboBox x:Name="InputDevices" Grid.Row="0" Grid.Column="1" 
+                  SelectionChanged="InputDevices_SelectionChanged"/>
+
+        <!-- Output Location -->
+        <Label Grid.Row="1" Grid.Column="0">Output File</Label>
+        <TextBox x:Name="FileName" Grid.Row="1" Grid.Column="1"
+                 TextChanged="FileName_TextChanged"/>
+        
+        <!-- Timer -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Row="2" Grid.ColumnSpan="2">
+            <Label Content="Total Time:" />
+            <Label x:Name="RecordingTime" Content="00:00" />
+        </StackPanel>
+
+        <!-- Buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"
+                    Grid.Row="3" Grid.ColumnSpan="2">
+            <Button x:Name="Start" Content="Start Recording" 
+                    Click="Start_Click" Margin ="5" Padding="5" />
+            <Button x:Name="Stop" Content="Stop Recording"
+                    Click="Stop_Click" Margin="5" Padding="5" />
+        </StackPanel>
+    </Grid>
+</Window>
