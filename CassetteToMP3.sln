@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVtoMP3", "WAVtoMP3\WAVtoM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MP3Tagger", "MP3Tagger\MP3Tagger.csproj", "{C7E2613A-B9E7-4642-ADBF-97154CE814DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioProcessorLibrary", "AudioProcessorLibrary\AudioProcessorLibrary.csproj", "{2E7AD0B0-9F87-439F-A54F-265321878B92}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AudioProcessorLibrary", "AudioProcessorLibrary\AudioProcessorLibrary.csproj", "{2E7AD0B0-9F87-439F-A54F-265321878B92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesterApp", "TesterApp\TesterApp.csproj", "{6B256275-8DF3-4FB9-BA9C-74EE0A4E0BCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TesterApp", "TesterApp\TesterApp.csproj", "{6B256275-8DF3-4FB9-BA9C-74EE0A4E0BCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecordingToMP3", "RecordingToMP3\RecordingToMP3.csproj", "{9C9DE258-7BB2-4FA5-97A0-51B2C719A7F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{6B256275-8DF3-4FB9-BA9C-74EE0A4E0BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B256275-8DF3-4FB9-BA9C-74EE0A4E0BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B256275-8DF3-4FB9-BA9C-74EE0A4E0BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C9DE258-7BB2-4FA5-97A0-51B2C719A7F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C9DE258-7BB2-4FA5-97A0-51B2C719A7F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C9DE258-7BB2-4FA5-97A0-51B2C719A7F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C9DE258-7BB2-4FA5-97A0-51B2C719A7F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

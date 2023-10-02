@@ -24,7 +24,7 @@
         <Label Grid.Row="0" Grid.Column="0">Input</Label>
         <TextBox x:Name="InputName" Grid.Row="0" Grid.Column="1"/>
 
-        <!-- Edit Points -->
+        <!-- Track Names -->
         <Label Grid.Row="1" Grid.Column="0">Track Names</Label>
         <TextBox x:Name="TrackNames" Grid.Row="1" Grid.Column="1"
                      MinHeight="120" TextWrapping="Wrap" AcceptsReturn="True" />
