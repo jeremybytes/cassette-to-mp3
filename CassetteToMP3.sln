@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVMaker", "WAVMaker\WAVMaker.csproj", "{FC016C8F-981A-4DC9-81CB-6FC5DB4E7099}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVRecorder", "WAVRecorder\WAVRecorder.csproj", "{CC03336A-170D-4C08-89E0-B3F1BFB74747}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVSplitter", "WAVSplitter\WAVSplitter.csproj", "{A7381818-F491-4E9A-A878-942ABAA956BC}"
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{FC016C8F-981A-4DC9-81CB-6FC5DB4E7099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC016C8F-981A-4DC9-81CB-6FC5DB4E7099}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC016C8F-981A-4DC9-81CB-6FC5DB4E7099}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC016C8F-981A-4DC9-81CB-6FC5DB4E7099}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CC03336A-170D-4C08-89E0-B3F1BFB74747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CC03336A-170D-4C08-89E0-B3F1BFB74747}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC03336A-170D-4C08-89E0-B3F1BFB74747}.Release|Any CPU.ActiveCfg = Release|Any CPU
