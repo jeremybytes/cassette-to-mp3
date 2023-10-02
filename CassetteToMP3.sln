@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVMaker", "WAVMaker\WAVMak
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVRecorder", "WAVRecorder\WAVRecorder.csproj", "{CC03336A-170D-4C08-89E0-B3F1BFB74747}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAVSplitter", "WAVSplitter\WAVSplitter.csproj", "{A7381818-F491-4E9A-A878-942ABAA956BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVSplitter", "WAVSplitter\WAVSplitter.csproj", "{A7381818-F491-4E9A-A878-942ABAA956BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAVtoMP3", "WAVtoMP3\WAVtoMP3.csproj", "{93B781E1-98DE-4FB3-9C89-970441E3AF8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WAVtoMP3", "WAVtoMP3\WAVtoMP3.csproj", "{93B781E1-98DE-4FB3-9C89-970441E3AF8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MP3Tagger", "MP3Tagger\MP3Tagger.csproj", "{C7E2613A-B9E7-4642-ADBF-97154CE814DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{93B781E1-98DE-4FB3-9C89-970441E3AF8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93B781E1-98DE-4FB3-9C89-970441E3AF8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93B781E1-98DE-4FB3-9C89-970441E3AF8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E2613A-B9E7-4642-ADBF-97154CE814DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E2613A-B9E7-4642-ADBF-97154CE814DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E2613A-B9E7-4642-ADBF-97154CE814DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E2613A-B9E7-4642-ADBF-97154CE814DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

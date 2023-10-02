@@ -18,7 +18,7 @@ internal class MP3Converter
             if (i == 0) continue;
             var inputFilePath = Path.Combine(inputFolder, $"{inputName}_Track{i}.wav");
 
-            var outputFilePath = Path.Combine(outputFolder, $"{i:D2}-{trackNames[i]}.mp3");
+            var outputFilePath = Path.Combine(outputFolder, $"{i:D2} {trackNames[i]}.mp3");
             ConvertFile(inputFilePath, outputFilePath);
         }
     }

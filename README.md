@@ -17,7 +17,11 @@ I use this to split a recording of a full side of a cassette tape into individua
 3. WAVtoMP3  
 Desktop application to convert the separate wave files into MP3s based on provided track names.  
 
-4. WAVMaker  
+4. MP3Tagger
+Desktop application to add ID3 tags to MP3 files.  
+***Work in Progress***  
+
+5. WAVMaker  
 Console application used to test the basics of recording.  
 
 ## Enhancements
