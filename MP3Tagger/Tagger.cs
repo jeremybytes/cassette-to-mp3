@@ -1,8 +1,4 @@
 ﻿using Id3;
-using System.IO;
-using System;
-using System.Collections.Generic;
-using Id3.Frames;
 
 namespace MP3Tagger;
 
@@ -13,7 +9,7 @@ internal class Tagger
 {
     public void SetTags(string filename, Tags tags)
     {
-        using var mp3 = new Mp3(filename);
+        using var mp3 = new Mp3(filename, Mp3Permissions.ReadWrite);
         Id3Tag tag = mp3.GetTag(Id3TagFamily.Version2X);
         tag.Title = tags.Title;
         tag.Track = tags.TrackNumber;

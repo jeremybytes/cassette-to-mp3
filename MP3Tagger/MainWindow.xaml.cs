@@ -14,15 +14,12 @@ public partial class MainWindow : Window
     {
         Tagger tagger = new();
 
-        string inputName = "TestFolder";
+        string inputName = "Youth_Choir_Side1";
         var inputFolder = Path.Combine("""D:\MusicProcessing\ConvertedMP3s""", inputName);
 
-        var outputFolder = Path.Combine("""D:\MusicProcessing\TaggedMP3s""", inputName);
-        if (!Directory.Exists(outputFolder)) Directory.CreateDirectory(outputFolder);
+        Tags tags = new("Youth Choir", "Youth Choir", 1982, "Someone's Calling", 1);
 
-        Tags tags = new("Youth Choir", "Youth Choir", 1982, "First Track", 1);
-
-        string inputFilePath = Path.Combine(inputFolder, "First_Track.mp3");
+        string inputFilePath = Path.Combine(inputFolder, "01-Someone's Calling.mp3");
 
         tagger.SetTags(inputFilePath, tags);
     }
