@@ -19,7 +19,7 @@ public partial class MainWindow : Window
 
         Tags tags = new("Youth Choir", "Youth Choir", 1982, "Someone's Calling", 1);
 
-        string inputFilePath = Path.Combine(inputFolder, "01-Someone's Calling.mp3");
+        string inputFilePath = Path.Combine(inputFolder, "01 Someone's Calling.mp3");
 
         tagger.SetTags(inputFilePath, tags);
     }
