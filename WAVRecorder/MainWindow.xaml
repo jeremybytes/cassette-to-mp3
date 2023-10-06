@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WAVRecorder"
         mc:Ignorable="d"
-        Title="WAV Maker" Height="175" Width="300">
+        Title="WAV Recorder" Height="175" Width="500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -28,7 +28,7 @@
         <!-- Output Location -->
         <Label Grid.Row="1" Grid.Column="0">Output File</Label>
         <TextBox x:Name="FileName" Grid.Row="1" Grid.Column="1"
-                 TextChanged="FileName_TextChanged"/>
+                 MouseDoubleClick="FileName_MouseDoubleClick"/>
         
         <!-- Timer -->
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"

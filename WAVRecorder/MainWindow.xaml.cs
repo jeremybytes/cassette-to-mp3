@@ -15,7 +15,7 @@ public partial class MainWindow : Window
     private SavingWaveProvider? savingWaveProvider;
     private WaveOutEvent? player;
     private int selectedDevice = 0;
-    private string fileName = "Recording.wav";
+    private string fileName = "";
     private DispatcherTimer recordingTime;
     private DateTime startTime;
 
@@ -61,19 +61,12 @@ public partial class MainWindow : Window
         selectedDevice = InputDevices.SelectedIndex;
     }
 
-    private void FileName_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        fileName = FileName.Text;
-    }
-
     private void Start_Click(object sender, RoutedEventArgs e)
     {
         startTime = DateTime.Now;
         recordingTime.Start();
 
-        var outputFolder = """D:\MusicProcessing\Recordings""";
-        Directory.CreateDirectory(outputFolder);
-        var outputFilePath = Path.Combine(outputFolder, fileName);
+        var outputFilePath = fileName;
 
         recorder = new WaveInEvent();
         recorder.DeviceNumber = selectedDevice;
@@ -101,5 +94,26 @@ public partial class MainWindow : Window
         recorder?.StopRecording();
         player?.Stop();
         savingWaveProvider?.Dispose();
+    }
+
+    private void FileName_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        // Configure open file dialog box
+        var dialog = new Microsoft.Win32.SaveFileDialog();
+        dialog.InitialDirectory = """C:\Recordings""";
+        dialog.FileName = "Recording.wav"; // Default file name
+        dialog.DefaultExt = ".wav"; // Default file extension
+        dialog.Filter = "WAV Files (.wav)|*.wav"; // Filter files by extension
+
+        // Show open file dialog box
+        bool? result = dialog.ShowDialog();
+
+        // Process open file dialog box results
+        if (result == true)
+        {
+            // Open document
+            fileName = dialog.FileName;
+            FileName.Text = fileName;
+        }
     }
 }
