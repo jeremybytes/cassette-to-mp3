@@ -9,9 +9,9 @@ internal class Program
         Splitter splitter = new();
 
         // Input for raw recording
-        string inputFile = """D:\MusicProcessing\Recordings\Youth_Choir_Side1.wav""";
+        string inputFile = """C:\Recordings\Youth_Choir_Side1.wav""";
 
-        TrackInfo info = new("Youth Choir", "Youth Choir", 1985, "Someone's Calling", 1);
+        TrackInfo info = new("Test Band", "Test Album", 1985, "Someone's C?all>ing", 1);
 
         // Split out single track (to WAV)
         string wavFilePath = splitter.ExtrackWAVTrack(
