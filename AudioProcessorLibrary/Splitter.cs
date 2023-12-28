@@ -9,7 +9,10 @@ public class Splitter
     {
         string inputPath = Path.GetDirectoryName(filePath)!;
         string outputFileName = $"""{info.TrackNumber:D2} {info.Title}.wav""";
-        string outputFilePath = Path.Combine(inputPath, info.Artist, info.Album, outputFileName);
+        string outputFilePath = Path.Combine(inputPath, 
+            ReplaceForbiddenCharacters(info.Artist), 
+            ReplaceForbiddenCharacters(info.Album), 
+            ReplaceForbiddenCharacters(outputFileName));
 
         if (!Directory.Exists(Path.GetDirectoryName(outputFilePath)))
             Directory.CreateDirectory(Path.GetDirectoryName(outputFilePath)!);
@@ -17,6 +20,13 @@ public class Splitter
         TrimWavFile(filePath, outputFilePath, start, end);
 
         return outputFilePath;
+    }
+
+    private string ReplaceForbiddenCharacters(string input)
+    {
+        foreach(char c in """<>:"/\|?*""")
+            input = input.Replace(c, '_');
+        return input;
     }
 
     private void TrimWavFile(string inPath, string outPath, TimeSpan startPoint, TimeSpan endPoint)
