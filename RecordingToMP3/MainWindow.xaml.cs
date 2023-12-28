@@ -39,7 +39,7 @@ public partial class MainWindow : Window
             Splitter splitter = new();
 
             // Split out single track (to WAV)
-            string wavFilePath = splitter.ExtrackWAVTrack(
+            string wavFilePath = splitter.ExtractWAVTrack(
                 inputFile,
                 start,
                 end,
@@ -84,7 +84,7 @@ public partial class MainWindow : Window
 
     private List<TimeSpan> GetEditPoints(string text)
     {
-        string[] times = text.Split('\n', StringSplitOptions.TrimEntries);
+        string[] times = text.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         List<TimeSpan> editPoints = new();
         foreach (string item in times)
             editPoints.Add(TimeSpan.Parse($"00:{item}"));
@@ -94,7 +94,7 @@ public partial class MainWindow : Window
     private List<string> GetTrackNames(string text)
     {
         List<string> tracks = new() { "EMPTY" };
-        string[] data = text.Split('\n', StringSplitOptions.TrimEntries);
+        string[] data = text.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         foreach (var item in data)
             tracks.Add(item);
         return tracks;

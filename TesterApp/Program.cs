@@ -14,7 +14,7 @@ internal class Program
         TrackInfo info = new("Youth Choir", "Youth Choir", 1985, "Someone's Calling", 1);
 
         // Split out single track (to WAV)
-        string wavFilePath = splitter.ExtrackWAVTrack(
+        string wavFilePath = splitter.ExtractWAVTrack(
             inputFile,
             TimeSpan.Parse($"00:00:12"),
             TimeSpan.Parse($"00:04:41"),

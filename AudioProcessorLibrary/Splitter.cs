@@ -4,7 +4,7 @@ namespace AudioProcessorLibrary;
 
 public class Splitter
 {
-    public string ExtrackWAVTrack(string filePath, TimeSpan start, TimeSpan end, 
+    public string ExtractWAVTrack(string filePath, TimeSpan start, TimeSpan end, 
         TrackInfo info)
     {
         string inputPath = Path.GetDirectoryName(filePath)!;
