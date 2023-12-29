@@ -35,12 +35,12 @@ public class Splitter
         {
             using (WaveFileWriter writer = new WaveFileWriter(outPath, reader.WaveFormat))
             {
-                int bytesPerMillisecond = reader.WaveFormat.AverageBytesPerSecond / 1000;
+                double bytesPerMillisecond = reader.WaveFormat.AverageBytesPerSecond / 1000d;
 
-                int startPos = (int)startPoint.TotalMilliseconds * bytesPerMillisecond;
+                int startPos = (int)(startPoint.TotalMilliseconds * bytesPerMillisecond);
                 startPos = startPos - startPos % reader.WaveFormat.BlockAlign;
 
-                int endPos = (int)endPoint.TotalMilliseconds * bytesPerMillisecond;
+                int endPos = (int)(endPoint.TotalMilliseconds * bytesPerMillisecond);
                 endPos = endPos - endPos % reader.WaveFormat.BlockAlign;
 
                 TrimWavFile(reader, writer, startPos, endPos);
