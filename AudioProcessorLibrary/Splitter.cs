@@ -24,7 +24,10 @@ public class Splitter
 
     private string ReplaceForbiddenCharacters(string input)
     {
-        foreach(char c in """<>:"/\|?*""")
+        // This does 9 "Replaces" on each string
+        // (artist, album, track). There may be
+        // a more efficient way of doing this.
+        foreach (char c in """<>:"/\|?*""")
             input = input.Replace(c, '_');
         return input;
     }
