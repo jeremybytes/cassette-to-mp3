@@ -16,8 +16,7 @@ public partial class MainWindow : Window
         string fileName = FileName.Text;
         List<TimeSpan> editPoints = ParseEditPoints(EditPoints.Text);
 
-        Splitter splitter = new();
-        splitter.SplitFile(fileName, editPoints);
+        Splitter.SplitFile(fileName, editPoints);
         //List<TimeSpan> breakpoints = new()
         //{
         //    new TimeSpan(0, 0, 12),
@@ -30,7 +29,7 @@ public partial class MainWindow : Window
         //splitter.SplitFile("Youth_Choir_Side1", breakpoints);
     }
 
-    private List<TimeSpan> ParseEditPoints(string text)
+    private static List<TimeSpan> ParseEditPoints(string text)
     {
         string[] times = text.Split('\n', StringSplitOptions.TrimEntries);
         List<TimeSpan> editPoints = new();

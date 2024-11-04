@@ -4,14 +4,14 @@ namespace AudioProcessorLibrary;
 
 public class Splitter
 {
-    public string ExtractWAVTrack(string filePath, TimeSpan start, TimeSpan end, 
+    public static string ExtractWAVTrack(string filePath, TimeSpan start, TimeSpan end, 
         TrackInfo info)
     {
         string inputPath = Path.GetDirectoryName(filePath)!;
         string outputFileName = $"""{info.TrackNumber:D2} {info.Title}.wav""";
-        string outputFilePath = Path.Combine(inputPath, 
-            ReplaceForbiddenCharacters(info.Artist), 
-            ReplaceForbiddenCharacters(info.Album), 
+        string outputFilePath = Path.Combine(inputPath,
+            ReplaceForbiddenCharacters(info.Artist),
+            ReplaceForbiddenCharacters(info.Album),
             ReplaceForbiddenCharacters(outputFileName));
 
         if (!Directory.Exists(Path.GetDirectoryName(outputFilePath)))
@@ -22,7 +22,7 @@ public class Splitter
         return outputFilePath;
     }
 
-    private string ReplaceForbiddenCharacters(string input)
+    private static string ReplaceForbiddenCharacters(string input)
     {
         // This does 9 "Replaces" on each string
         // (artist, album, track). There may be
@@ -32,26 +32,22 @@ public class Splitter
         return input;
     }
 
-    private void TrimWavFile(string inPath, string outPath, TimeSpan startPoint, TimeSpan endPoint)
+    private static void TrimWavFile(string inPath, string outPath, TimeSpan startPoint, TimeSpan endPoint)
     {
-        using (WaveFileReader reader = new WaveFileReader(inPath))
-        {
-            using (WaveFileWriter writer = new WaveFileWriter(outPath, reader.WaveFormat))
-            {
-                double bytesPerMillisecond = reader.WaveFormat.AverageBytesPerSecond / 1000d;
+        using WaveFileReader reader = new(inPath);
+        using WaveFileWriter writer = new(outPath, reader.WaveFormat);
+        double bytesPerMillisecond = reader.WaveFormat.AverageBytesPerSecond / 1000d;
 
-                int startPos = (int)(startPoint.TotalMilliseconds * bytesPerMillisecond);
-                startPos = startPos - startPos % reader.WaveFormat.BlockAlign;
+        int startPos = (int)(startPoint.TotalMilliseconds * bytesPerMillisecond);
+        startPos = startPos - startPos % reader.WaveFormat.BlockAlign;
 
-                int endPos = (int)(endPoint.TotalMilliseconds * bytesPerMillisecond);
-                endPos = endPos - endPos % reader.WaveFormat.BlockAlign;
+        int endPos = (int)(endPoint.TotalMilliseconds * bytesPerMillisecond);
+        endPos = endPos - endPos % reader.WaveFormat.BlockAlign;
 
-                TrimWavFile(reader, writer, startPos, endPos);
-            }
-        }
+        TrimWavFile(reader, writer, startPos, endPos);
     }
 
-    private void TrimWavFile(WaveFileReader reader, WaveFileWriter writer, int startPos, int endPos)
+    private static void TrimWavFile(WaveFileReader reader, WaveFileWriter writer, int startPos, int endPos)
     {
         reader.Position = startPos;
         byte[] buffer = new byte[1024];

@@ -7,7 +7,7 @@ namespace WAVSplitter;
 
 internal class Splitter
 {
-    public void SplitFile(string fileName, List<TimeSpan> breakPoints)
+    public static void SplitFile(string fileName, List<TimeSpan> breakPoints)
     {
         var inputFolder = """D:\MusicProcessing\Recordings""";
         var inputFilePath = Path.Combine(inputFolder, fileName+".wav");
@@ -29,23 +29,19 @@ internal class Splitter
         }
     }
 
-    public void TrimWavFile(string inPath, string outPath, TimeSpan startPoint, TimeSpan endPoint)
+    public static void TrimWavFile(string inPath, string outPath, TimeSpan startPoint, TimeSpan endPoint)
     {
-        using (WaveFileReader reader = new WaveFileReader(inPath))
-        {
-            using (WaveFileWriter writer = new WaveFileWriter(outPath, reader.WaveFormat))
-            {
-                int bytesPerMillisecond = reader.WaveFormat.AverageBytesPerSecond / 1000;
+        using WaveFileReader reader = new(inPath);
+        using WaveFileWriter writer = new(outPath, reader.WaveFormat);
+        int bytesPerMillisecond = reader.WaveFormat.AverageBytesPerSecond / 1000;
 
-                int startPos = (int)startPoint.TotalMilliseconds * bytesPerMillisecond;
-                startPos = startPos - startPos % reader.WaveFormat.BlockAlign;
+        int startPos = (int)startPoint.TotalMilliseconds * bytesPerMillisecond;
+        startPos = startPos - startPos % reader.WaveFormat.BlockAlign;
 
-                int endPos = (int)endPoint.TotalMilliseconds * bytesPerMillisecond;
-                endPos = endPos - endPos % reader.WaveFormat.BlockAlign;
+        int endPos = (int)endPoint.TotalMilliseconds * bytesPerMillisecond;
+        endPos = endPos - endPos % reader.WaveFormat.BlockAlign;
 
-                TrimWavFile(reader, writer, startPos, endPos);
-            }
-        }
+        TrimWavFile(reader, writer, startPos, endPos);
     }
 
     //public void TrimWavFile(string inPath, string outPath, TimeSpan cutFromStart, TimeSpan cutFromEnd)
@@ -68,7 +64,7 @@ internal class Splitter
     //    }
     //}
 
-    private void TrimWavFile(WaveFileReader reader, WaveFileWriter writer, int startPos, int endPos)
+    private static void TrimWavFile(WaveFileReader reader, WaveFileWriter writer, int startPos, int endPos)
     {
         reader.Position = startPos;
         byte[] buffer = new byte[1024];
@@ -81,7 +77,7 @@ internal class Splitter
                 int bytesRead = reader.Read(buffer, 0, bytesToRead);
                 if (bytesRead > 0)
                 {
-                    writer.WriteData(buffer, 0, bytesRead);
+                    writer.Write(buffer, 0, bytesRead);
                 }
             }
         }

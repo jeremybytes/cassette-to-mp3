@@ -6,7 +6,7 @@ namespace WAVtoMP3;
 
 internal class MP3Converter
 {
-    public void ConvertFiles(string inputName, List<string> trackNames)
+    public static void ConvertFiles(string inputName, List<string> trackNames)
     {
         var inputFolder = """D:\MusicProcessing\SplitFiles""";
 
@@ -23,12 +23,10 @@ internal class MP3Converter
         }
     }
 
-    private void ConvertFile(string inputFilePath, string outputFilePath)
+    private static void ConvertFile(string inputFilePath, string outputFilePath)
     {
-        using (var reader = new WaveFileReader(inputFilePath))
-        {
-            MediaFoundationEncoder.EncodeToMp3(reader,
-                    outputFilePath, 48000);
-        }
+        using var reader = new WaveFileReader(inputFilePath);
+        MediaFoundationEncoder.EncodeToMp3(reader,
+                outputFilePath, 48000);
     }
 }

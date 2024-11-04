@@ -12,8 +12,6 @@ public partial class MainWindow : Window
 
     private void Go_Click(object sender, RoutedEventArgs e)
     {
-        Tagger tagger = new();
-
         string inputName = "Youth_Choir_Side1";
         var inputFolder = Path.Combine("""D:\MusicProcessing\ConvertedMP3s""", inputName);
 
@@ -21,6 +19,6 @@ public partial class MainWindow : Window
 
         string inputFilePath = Path.Combine(inputFolder, "01 Someone's Calling.mp3");
 
-        tagger.SetTags(inputFilePath, tags);
+        Tagger.SetTags(inputFilePath, tags);
     }
 }

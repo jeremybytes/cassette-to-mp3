@@ -4,7 +4,7 @@ namespace AudioProcessorLibrary;
 
 public class MP3Converter
 {
-    public string ConvertFile(string inputFilePath)
+    public static string ConvertFile(string inputFilePath)
     {
         string inputPath = Path.GetDirectoryName(inputFilePath)!;
         string inputFileName = Path.GetFileNameWithoutExtension(inputFilePath);

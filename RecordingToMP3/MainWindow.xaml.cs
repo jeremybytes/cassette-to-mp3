@@ -36,26 +36,21 @@ public partial class MainWindow : Window
             int trackNumber = baseTrack + i - 1;
             TrackInfo trackInfo = baseInfo with { TrackNumber = trackNumber, Title = trackNames[i] };
 
-            Splitter splitter = new();
-
             // Split out single track (to WAV)
-            string wavFilePath = splitter.ExtractWAVTrack(
+            string wavFilePath = Splitter.ExtractWAVTrack(
                 inputFile,
                 start,
                 end,
                 trackInfo);
 
             // Convert WAV to MP3
-            MP3Converter converter = new();
-
-            string mp3Path = converter.ConvertFile(wavFilePath);
+            string mp3Path = MP3Converter.ConvertFile(wavFilePath);
 
             // Delete WAV
             File.Delete(wavFilePath);
 
             // Add tags to MP3
-            Tagger tagger = new();
-            tagger.TagFile(mp3Path, trackInfo);
+            Tagger.TagFile(mp3Path, trackInfo);
         }
 
         MessageBox.Show("Done");
@@ -82,7 +77,7 @@ public partial class MainWindow : Window
         }
     }
 
-    private List<TimeSpan> GetEditPoints(string text)
+    private static List<TimeSpan> GetEditPoints(string text)
     {
         string[] times = text.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         List<TimeSpan> editPoints = new();
@@ -91,9 +86,9 @@ public partial class MainWindow : Window
         return editPoints;
     }
 
-    private List<string> GetTrackNames(string text)
+    private static List<string> GetTrackNames(string text)
     {
-        List<string> tracks = new() { "EMPTY" };
+        List<string> tracks = ["EMPTY"];
         string[] data = text.Split('\n', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
         foreach (var item in data)
             tracks.Add(item);

@@ -16,13 +16,12 @@ public partial class MainWindow : Window
         string inputName = InputName.Text;
         List<string> trackNames = GetTrackNames(TrackNames.Text);
 
-        MP3Converter converter = new();
-        converter.ConvertFiles(inputName, trackNames);
+        MP3Converter.ConvertFiles(inputName, trackNames);
     }
 
-    private List<string> GetTrackNames(string text)
+    private static List<string> GetTrackNames(string text)
     {
-        List<string> tracks = new() { "EMPTY" };
+        List<string> tracks = ["EMPTY"];
         string[] data = text.Split('\n', StringSplitOptions.TrimEntries);
         foreach (var item in data)
             tracks.Add(item);

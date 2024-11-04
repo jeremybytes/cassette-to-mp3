@@ -4,7 +4,7 @@ namespace AudioProcessorLibrary;
 
 public class Tagger
 {
-    public string TagFile(string fileName, TrackInfo info)
+    public static string TagFile(string fileName, TrackInfo info)
     {
         using var mp3 = new Mp3(fileName, Mp3Permissions.ReadWrite);
         Id3Tag tag = mp3.GetTag(Id3TagFamily.Version2X);
