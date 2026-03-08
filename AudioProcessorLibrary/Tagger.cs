@@ -12,6 +12,7 @@ public class Tagger
         tag.Track = info.TrackNumber;
         tag.Album = info.Album;
         tag.Artists.Value.Add(info.Artist);
+        tag.Band = info.Artist;
         tag.Year = info.Year;
         mp3.WriteTag(tag, WriteConflictAction.Replace);
         return fileName;

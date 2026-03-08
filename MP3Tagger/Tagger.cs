@@ -1,4 +1,5 @@
 ﻿using Id3;
+using Id3.Frames;
 
 namespace MP3Tagger;
 
@@ -15,6 +16,7 @@ internal class Tagger
         tag.Track = tags.TrackNumber;
         tag.Album = tags.Album;
         tag.Artists.Value.Add(tags.Artist);
+        tag.Band = tags.Artist;
         tag.Year = tags.Year;
         mp3.WriteTag(tag, WriteConflictAction.Replace);
     }
